@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+             x:Class="temp_control_visual.MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*" />
+            <ColumnDefinition Width="50*" />
+            <ColumnDefinition Width="50*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Text="${count}°C" Grid.Row="1"
+               Grid.RowSpan="2"
+               Grid.Column="2"
+               HorizontalTextAlignment="Center"
+               FontSize="Large"/>
+
+        <Label x:Name="ControlDegrees°C" Text="°C" Grid.Row="1" 
+               HorizontalTextAlignment="Center"
+               FontSize="Large"
+               TextColor="Orange" />
+        
+        <Button x:Name="Increment" Text="Up" BorderColor="Black" Grid.Row="1" Grid.Column="1" BackgroundColor="DarkRed" Clicked="IncrementButton_Clicked">
+
+        </Button>
+        <Button x:Name="Decrement" Text="Down" BorderColor="Black" Grid.Row="2" Grid.Column="1" BackgroundColor="DarkBlue" Clicked="DecrementButton_Clicked">
+
+        </Button>
+        <Button x:Name="Update" Text="Update" BorderColor="Black" Grid.Row="3" Grid.Column="1" BackgroundColor="DarkOliveGreen">
+
+        </Button>
+        <gauge:SfRadialGauge Grid.Row="0"
+                             Grid.ColumnSpan="3"
+                             Grid.Column="0">
+            <gauge:SfRadialGauge.Axes>
+                <gauge:RadialAxis
+            Interval="5"
+              Minimum="10"
+              Maximum="50"
+            ShowAxisLine="false"
+            MinorTicksPerInterval="9"
+            EnableLoadingAnimation="True"
+            AnimationDuration="2500" 
+            >
+                    <gauge:RadialAxis.MajorTickStyle>
+                        <gauge:RadialTickStyle Length="0.365"
+                                       LengthUnit="Factor"
+                                       Stroke="Black"
+                                       StrokeThickness="2"/>
+                    </gauge:RadialAxis.MajorTickStyle>
+                    <gauge:RadialAxis.MinorTickStyle>
+                        <gauge:RadialTickStyle Length="0.33"
+                                       LengthUnit="Factor"
+                                       Stroke="Black"
+                                      />
+                    </gauge:RadialAxis.MinorTickStyle>
+
+                    <gauge:RadialAxis.Ranges>
+                        <gauge:RadialRange StartValue="-50"
+                                   EndValue="0"
+                                   Fill="#bf2290c7"
+                                   StartWidth="0.265"
+                                   EndWidth="0.265"
+                                   WidthUnit="Factor"
+                                   />
+                        <gauge:RadialRange StartValue="10"
+                   EndValue="20"
+                   Fill="#bf22c3c7"
+                   StartWidth="0.265"
+                   EndWidth="0.265"
+                   WidthUnit="Factor"
+                   />
+
+                        <gauge:RadialRange StartValue="20"
+                   EndValue="30"
+                   Fill="#bf7bc722"
+                   StartWidth="0.265"
+                   EndWidth="0.265"
+                   WidthUnit="Factor"
+                   />
+
+                        <gauge:RadialRange StartValue="30"
+                   EndValue="40"
+                   Fill="#bfeec333"
+                   StartWidth="0.265"
+                   EndWidth="0.265"
+                   WidthUnit="Factor"
+                   />
+
+                        <gauge:RadialRange StartValue="40"
+                   EndValue="150"
+                   Fill="#bfee4f22"
+                   StartWidth="0.265"
+                   EndWidth="0.265"
+                   WidthUnit="Factor"
+                   />
+                    </gauge:RadialAxis.Ranges>
+
+                    <gauge:RadialAxis.Pointers>
+                        <gauge:NeedlePointer Value="30.5"
+                                    NeedleFill="black"
+                                    NeedleLength="0.5"
+                                    NeedleStartWidth="1"
+                                    NeedleEndWidth="16"
+                                    KnobFill="Black"
+                                    
+                                    TailLength="0.2"
+                                    TailWidth="16"
+                                    TailFill="Black"
+                                    />
+                        <gauge:NeedlePointer Value="ControlDegrees"
+                                     NeedleFill="DarkOrange"
+                                     NeedleLength="0.6"
+                                     NeedleStartWidth="1"
+                                     NeedleEndWidth="16"
+                                     KnobFill="Black"
+                                     KnobStroke="DarkOrange"
+                                     KnobStrokeThickness="0.04"
+                                     KnobRadius="0.1"
+                                     TailLength="0.2"
+                                     TailWidth="16"
+                                     TailFill="DarkOrange"
+                                     />
+
+                    </gauge:RadialAxis.Pointers>
+
+                    <gauge:RadialAxis.Annotations>
+                        <gauge:GaugeAnnotation PositionFactor="1"
+                                       DirectionValue="60">
+                            <gauge:GaugeAnnotation.Content>
+                                <Label Text="Arm temperatur °C"
+                               FontAttributes="Bold"
+                               TextColor="Black"
+                               FontSize="14"/>
+                            </gauge:GaugeAnnotation.Content>
+                        </gauge:GaugeAnnotation>
+
+                        <gauge:GaugeAnnotation PositionFactor="1"
+                                       DirectionValue="120">
+                            <gauge:GaugeAnnotation.Content>
+                                <Label Text="handske Temperatur °C"
+                               TextColor="DarkOrange"
+                               FontSize="14"/>
+                            </gauge:GaugeAnnotation.Content>
+                        </gauge:GaugeAnnotation>
+                    </gauge:RadialAxis.Annotations>
+                </gauge:RadialAxis>
+            </gauge:SfRadialGauge.Axes>
+        </gauge:SfRadialGauge>
+    </Grid>
+
+
+</ContentPage>
+
